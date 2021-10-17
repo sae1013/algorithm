@@ -1,0 +1,62 @@
+{\rtf1\ansi\ansicpg949\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset129 AppleSDGothicNeo-Regular;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 # Definition for singly-linked list.\
+\
+class ListNode:\
+    def __init__(self, val=0, next=None):\
+        self.val = val\
+        self.next = next\
+        \
+class Solution:\
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]: # 
+\f1 \'be\'e7\'b3\'a1\'bf\'a1\'bc\'ad
+\f0  
+\f1 \'b3\'eb\'b5\'e5\'c5\'bd\'bb\'f6\'c7\'cf\'b8\'e9\'bc\'ad
+\f0  
+\f1 \'b5\'b9\'be\'c6\'bf\'c0\'b8\'e9\'b5\'ca
+\f0 .\
+        cur = l1\
+        l1_num = ""\
+        while cur.next : # 
+\f1 \'b4\'d9\'c0\'bd\'c0\'bb
+\f0  
+\f1 \'b0\'a1\'b8\'a3\'c5\'b3\'bc\'f6\'c0\'d6\'c0\'bb\'b6\'a7
+\f0 .\
+          l1_num = str(cur.val)+l1_num  \
+          cur = cur.next\
+        l1_num = str(cur.val)+l1_num  \
+        \
+        cur = l2\
+        l2_num = ""\
+        while cur.next : # 
+\f1 \'b4\'d9\'c0\'bd\'c0\'bb
+\f0  
+\f1 \'b0\'a1\'b8\'a3\'c5\'b3\'bc\'f6\'c0\'d6\'c0\'bb\'b6\'a7
+\f0 .\
+          l2_num = str(cur.val)+l2_num  \
+          cur = cur.next\
+        l2_num = str(cur.val)+l2_num  \
+        \
+        res = int(l1_num)+ int(l2_num)\
+        answer = list(map(int,list(str(res))[::-1])) # 7,0,8\
+        \
+        startNode = ListNode(answer[0]) # 
+\f1 \'c3\'b9\'b9\'f8\'a4\'8a\'b3\'eb\'b5\'e5
+\f0 \
+        cur = startNode\
+        for i in range(1,len(answer)):\
+            cur.next = ListNode(answer[i])\
+            cur = cur.next\
+        return startNode\
+            \
+        \
+\
+                \
+        \
+        \
+        }
