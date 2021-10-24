@@ -1,0 +1,29 @@
+## 1992번
+def quad(maps,y,x,n,s): # n 은 경계
+    sum = 0
+    if n == 0:
+        return s
+    for i in range(y,y+n): #
+        for j in range(x,x+n):
+            sum+=maps[i][j]
+
+    if sum == n**2:
+        s+="1"
+    elif sum == 0: # 모두 0일때 0을증가 sum = 0
+        s+="0"
+    else: # 그외의경우는 재귀
+        s+="("
+        s = quad(maps,y,x,n//2,s)
+        s = quad(maps,y,x+n//2,n//2,s)
+        s = quad(maps, y+n//2, x, n // 2, s)
+        s = quad(maps, y+n//2, x+n//2, n // 2, s)
+        s+=")"
+    return s
+
+
+n = int(input())
+maps=  []
+for i in range(n):
+    maps.append(list(map(int,list(input()))))
+ans = quad(maps,0,0,n,"")
+print(ans)
