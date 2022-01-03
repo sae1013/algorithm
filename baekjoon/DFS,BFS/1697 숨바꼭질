@@ -1,0 +1,47 @@
+### 1697 숨바꼭질
+
+### 문제링크
+
+https://www.acmicpc.net/problem/10974
+
+
+### 접근
+
+최소시간을 구해야하는 문제이므로 BFS 를 선택하였습니다.
+BFS를 사용하면, 동일한 Depth, 즉 시간을 기준으로 방문처리를 할수있습니다.
+중요한점은, 불필요한 경로탐색을 하지않도록, 가지치기 조건을 달아주어야합니다.
+
+
+### 코드 구현
+
+- 사용 언어 : 파이썬
+
+```python
+from collections import deque
+
+n, k = map(int,input().split())
+q = deque()
+visit = [0]*200005 # 20만 
+
+q.append([0,n]) # 시간, 좌표
+
+while q :
+  time,pos = q.popleft()
+  if pos == k:
+    print(time)
+    break
+  
+  if pos*2<=k+1 and not visit[pos*2]:
+    q.append([time+1,pos*2])
+    visit[pos*2] = 1
+  
+  if pos+1 <= k and not visit[pos+1]:
+    q.append([time+1, pos+1])
+    visit[pos+1] = 1
+
+  if pos-1 >= 0 and not visit[pos-1]:
+    q.append([time+1,pos-1])
+    visit[pos-1] = 1
+
+```
+
