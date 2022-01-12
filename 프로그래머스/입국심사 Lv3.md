@@ -3,13 +3,13 @@
 O(logN)으로 풀어야하는 문제이므로 사실 보자마자 이분탐색이 떠올랐다.
 
 ```python
-def leftBound(n,times): # target 60분 이라면, times 를 다 더해서, 
+def leftBound(n,times): 
     start = 1
     end = times[len(times)-1] * n
-    answer = 0
+    answer = 0 
     while start <= end : 
         mid =(start+end) // 2 
-        temp = 0
+        temp = 0 # 임시적으로, 검사할 수 있는 사람 수를 저장하는 변수
         for time in times:
             temp+= mid//time
         if temp >= n: # 왼쪽 탐색하기
