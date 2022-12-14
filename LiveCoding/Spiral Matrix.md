@@ -68,6 +68,6 @@ while left <= right and top <= bottom :
     for i in range(bottom,top-1,-1):
         ret.append(arr[i][left])
     left+=1
-    cnt+=1
+
 print(ret)
 ```
