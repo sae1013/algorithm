@@ -1,6 +1,7 @@
 문해력이 부족한가... 문제가 이해가 되지않을때가 있네.  
 TC: O(N^2) N: 로그배열 길이
 
+
 ```python
 def trans_hms_sec(hms):
     hms = hms.split(':')
